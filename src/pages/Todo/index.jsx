@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
-import dbConnect from '../../lib/dbConect'
+import dbConnect from '../../lib/dbtestConect'
 // import ModelDoc from '../models/doc'
 import ModelTest1 from '../../models/Test1'
 import PostCrud from './[id]/PostCrud'

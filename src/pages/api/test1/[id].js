@@ -1,4 +1,4 @@
-import dbConnect from '../../../lib/dbConect'
+import dbConnect from '../../../lib/dbtestConect'
 import ModelTest1 from '../../../models/Test1'
 
 
