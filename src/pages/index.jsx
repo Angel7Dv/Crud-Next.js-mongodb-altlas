@@ -1,6 +1,11 @@
+import Layout from './layout'
+import Vocabulary from './vocabulary'
 
 export default function index() {
   return (
-    <div>index</div>
+    <Layout title={"Welcome"}>
+      <Vocabulary/>
+      
+    </Layout>
   )
 }
