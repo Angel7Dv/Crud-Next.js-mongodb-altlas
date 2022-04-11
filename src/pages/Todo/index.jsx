@@ -66,7 +66,6 @@ export async function getServerSideProps() {
     Doc._id = Doc._id.toString()
     return Doc //retornado para el map
   })
-  console.log(result)
 
   return { props: { Test1: Test1 } }
 

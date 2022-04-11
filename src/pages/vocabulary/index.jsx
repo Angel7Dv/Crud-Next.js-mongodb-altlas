@@ -1,31 +1,42 @@
 import Card from "./Card"
 import List from "./List"
 import Panel from "./Panel"
+import Layout from "../layout"
 
-export default function index() {
+import dbConnect from '../../lib/dbConnect'
+import WordsModel from '../../models/words'
 
-    const vocabulary = [
-        {
-            word: "forward",
-            translate: "avanzar",
-            input: "avanzar",
-        }
-    ]
+export default function index({listWords}) {
 
     return (
-        <div className="mx-auto container">
-            <div className="flex space-x-1 justify-center mt-24">
+        <Layout className="mx-auto container">
+            <div className="flex space-x-1 justify-center mt-20">
 
                 <Panel/>
 
                 <Card/>
            
-                <List/>
+                <List listWords={listWords}/>
     
             </div>
 
 
 
-        </div>
+        </Layout>
     )
 }
+
+
+export async function getServerSideProps() {
+    await dbConnect()
+  
+    /* find all the data in our database */
+    const result = await WordsModel.find({})
+    const listWords = result.map((doc) => {
+      const word = doc.toObject()
+      word._id = word._id.toString()
+      return word
+    })
+  
+    return { props: { listWords: listWords } }
+  }
